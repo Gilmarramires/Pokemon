@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>Pokemon</title>
+</head>
+<body>
+    <div id="app">
+        <div class="logo">
+            <h1></h1>
+        </div>
+
+        <div class="pesquisar">
+            <input type="text" v-model="pokemonNameId">
+            <button @click="searchPokemon">Buscar</button>
+        </div>
+
+        <div class="pokeinfo">
+            <div class="pokemons_img">
+                <p v-if="error">Você digitou o nome errado :(</p>
+                <p v-if="loading">Carregando</p>
+                <img v-if="pokemonImagem" :src="pokemonImagem" alt="pokemon imagem">
+            </div>
+
+            <div class="pokemons_carac">
+                <p v-if="pokemon">
+                    Nome do personagem: {{ pokemon.name }} <br>
+                    Tipo: {{ pokemon.types }} <br>
+                    Habilidades: {{ pokemon.abilities }}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+    
+</body>
+</html>
